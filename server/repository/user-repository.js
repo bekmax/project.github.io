@@ -16,5 +16,5 @@ module.exports.getUserByUsername = function(username){
 
 
 // Default users
-users.push(new User('admin', '1111'));
-users.push(new User('user', '0000'));
+users.push(new User('admin', 'admin'));
+users.push(new User('user', 'user'));

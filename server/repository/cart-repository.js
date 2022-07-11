@@ -9,6 +9,18 @@ module.exports.getCart = function (user) {
     });
 }
 
+module.exports.getCartItem = function(user, product){
+    let cart = carts.find(function(cart){
+        return cart.user.username === user.username;
+    });
+    if(cart){
+        return cart.items.find(function(item){
+            return item.product.id === product.id;
+        });
+    }
+    return null;
+    
+}
 module.exports.removeCart = function(cart){
     const index = carts.findIndex(function(elem){
         return elem.user.username == cart.user.username;

@@ -33,6 +33,13 @@ module.exports.addItem = function (request, response) {
         response.status(400).json({ message: 'Product not available' });
         return;
     }
+
+    let itemInCart = cartRepository.getCartItem(user, item);
+    if (itemInCart && itemInCart.count >= item.stock) {
+        response.status(400).json({ message: 'No more item to put into the cart' });
+        return;
+    }
+
     const cartItem = cartRepository.addItem(user, item);
 
     response.status(201).json(JSON.parse(JSON.stringify(cartItem, (key, value) => {
@@ -59,6 +66,12 @@ module.exports.increaseQuantity = function (request, response) {
         return;
     }
     try {
+        let itemInCart = cartRepository.getCartItem(user, item);
+        if (itemInCart && itemInCart.count >= item.stock) {
+            response.status(400).json({ message: 'No more item to put into the cart' });
+            return;
+        }
+
         let cartItem = cartRepository.increaseQuantity(user, item);
         response.json(cartItem);
     } catch (e) {
@@ -106,7 +119,7 @@ module.exports.placeOrder = function (request, response) {
         }
     });
 
-    if(!valid){
+    if (!valid) {
         return;
     }
     cart.items.forEach(function (item) {

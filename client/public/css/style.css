@@ -21,3 +21,6 @@ body{
 .navbar-brand{
     color: white;
 }
+.navbar-brand:hover{
+    color: #0dcaf0;
+}
