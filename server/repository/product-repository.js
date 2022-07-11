@@ -13,15 +13,14 @@ module.exports.getProductById = function(id){
     return product;
 }
 
+const dirImg = '/img/';
 
 // Added boilerplate data for testing purposes
-products.push(new Product(1, "Honda", 1.0, 'image', 1));
-products.push(new Product(2, "Yamaha", 1.0, 'image', 2));
-products.push(new Product(3, "Suzuki", 1.0, 'image', 3));
-products.push(new Product(4, "Kawasaki", 1.0, 'image', 4));
-products.push(new Product(5, "BMW", 1.0, 'image', 5));
-products.push(new Product(6, "Ducati", 1.0, 'image', 6));
-products.push(new Product(7, "Triumph", 1.0, 'image', 7));
-products.push(new Product(8, "KTM", 1.0, 'image', 8));
-products.push(new Product(9, "Harley-Davidson", 1.0, 'image', 9));
+products.push(new Product(1, "Honda CBR1000RR", 16499, `${dirImg}honda.png`, 10));
+products.push(new Product(2, "Yamaha YZF R1", 17599, `${dirImg}yamaha.png`, 5));
+products.push(new Product(3, "Suzuki GSX-S1000", 11299, `${dirImg}suzuki.png`, 7));
+products.push(new Product(4, "Kawasaki NINJA H2", 27500, `${dirImg}kawasaki.png`, 2));
+products.push(new Product(5, "BMW K1600 GT", 23895, `${dirImg}bmw.png`, 4));
+products.push(new Product(6, "Ducati Streetfighter V2", 16995, `${dirImg}ducati.png`, 6));
+products.push(new Product(9, "Harley-Davidson FAT BOY 114", 19530, `${dirImg}harleydavidson.png`, 1));
 

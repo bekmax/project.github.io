@@ -88,7 +88,7 @@ module.exports.decreaseQuantity = function (request, response) {
 module.exports.placeOrder = function (request, response) {
     const user = sessionRepository.getUserBySession(request.headers.session);
     const cart = cartRepository.getCart(user);
-
+    let valid = true;
     if (!cart) {
         response.status(404).json({ message: 'Cart is not available' });
     }
@@ -101,10 +101,14 @@ module.exports.placeOrder = function (request, response) {
         const product = productRepository.getProductById(item.product.id);
         if (product.stock < item.count) {
             response.status(400).json({ message: `Not enough stock for ${product.name}` });
+            valid = false;
             return;
         }
     });
 
+    if(!valid){
+        return;
+    }
     cart.items.forEach(function (item) {
         const product = productRepository.getProductById(item.product.id);
         product.stock -= item.count;

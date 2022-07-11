@@ -13,6 +13,8 @@ const cartRouter = require('./routes/cart-router');
 const authentication = require('./auth/authentication');
 const auth = authentication.authenticate;
 
+app.use(express.static('asset'));
+app.use('/asset', express.static('img'));
 
 app.use('/auth', loginRouter);
 app.use('/products', auth, productRouter);

@@ -1,12 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Azizbek Makhkamov">
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="./public/js/bootstrap.min.js"></script>
+    <script src="./public/js/script.js"></script>
 </head>
+
 <body>
-    
+    <div class="container">
+
+        <nav class="navbar bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">Bike Store</a>
+                <form class="d-flex" role="search" id="login">
+                    <input class="form-control me-2" type="text" placeholder="username" aria-label="username"
+                        id="usernameInput">
+                    <input class="form-control me-2" type="password" placeholder="password" aria-label="password"
+                        id="passwordInput">
+                    <button class="btn btn-outline-info" type="submit" id="loginButton">Login</button>
+                </form>
+
+                <div class="d-flex" id="logout">
+                    <a class="navbar-brand" id="welcome"></a>
+                    <button class="btn btn-outline-warning" type="submit" id="logoutButton">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main">
+
+
+            <div id="welcomePage">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-10">
+                        <img src="./public/asset/welcome.png" width="100%" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div id="shopPage">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-10">
+                        <h3 class="display-6">Products</h3>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products">
+                            </tbody>
+
+                        </table>
+
+                        <h3 class="display-6">Shopping cart</h3>
+
+                        <h4 class="display-8" id="emptyCart" style="visibility:visible;">Cart is empty
+                        </h4>
+
+                        <table class="table table-hover" id="cart" style="visibility: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartItems">
+
+                            </tbody>
+
+                        </table>
+
+                        <div class="text-end">
+                            <button class="btn btn-outline-success" id="orderButton" style="display: none;">Place
+                                Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </body>
+
 </html>
